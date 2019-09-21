@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head  th:replace="/fragments/CommonFragment::HeadDefinitions">
+</head>
+
+<body>
+     <div class="jumbotron text-size">
+      <h1>Worker or Workers available for repair project</h1> 
+      
+      <br>
+      <p>User can select worker or several workers for repair project. </p>       
+      <p>By pushing CTRL down user can select several workers. </p>        
+      <p>Work Order Report is created by clicking <span  class=" button-color">create Work Order Report  </span> button.</p>     
+      </div>          
+     
+      <div class="container-fluid">         
+        <div class="dropDownBoxPosition">
+          <form action="/createWorkOrderReport" method="post">       
+                                
+                   <select name="selectedAllWorkers" id="selectedWorkersList"   multiple size ="10">                         
+                          <option th:each ="worker:${combinationWorkerList} "   th:value ="${worker}"   th:text ="${worker} "   ></option>
+                   </select>
+               <br>              
+               <input type ="submit" value="create Work Order Report"  class="btn btn-primary button-color"/>               
+          </form>          
+       </div>             
+     </div> 
+    <div  th:replace="/fragments/CommonFragment::footer"></div>      
+  </body>
+</html>

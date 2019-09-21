@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head  th:replace="/fragments/CommonFragment::HeadDefinitions">
+</head>
+
+<body>
+     <div class="jumbotron text-size">
+      <h1>All machine list</h1>
+      
+      <br>
+      <p>This page shows all machines, location  and status.  </p> 
+      <p>Working machine has green color and non-working machine has red color button. </p>  
+      <p>By clicking red button, machine is selected for repair project   </p>
+      <p>User can then select worker or workers for repair project        </p>
+      </div>     
+      
+      <div class="container-fluid">          
+      <div class="row">
+           <div class="col-sm-12">
+                 <table class="table table-sm table-striped">
+                       <thead class="table-header">
+                             <tr class="row">
+                                   <th class="col-sm-3">machine           </th>
+                                   <th class="col-sm-9"> status / action  </th>                                  
+                              <tr> 
+                       </thead>
+                       <tbody>
+                              <tr  class="row " data-th-each="machine:${machineRepository} " >                              
+                                    <td class="col-sm-3" data-th-text="${machine.name}  "   ></td> 
+                                     <td   class="col-sm-9 "  >                                      
+                                        <span  th:if ="${machine.status==11}  "   >                        
+                                           <a
+                                              th:href="@{'/{id}/repair' ( id=${machine.id} )    }" class ="btn btn-danger  btn-size">                                             
+                                              Click  button to select this non-working machine for repair.                                          
+                                           </a>
+                                        </span>
+                                        <span  th:if ="${machine.status==22}  "   >  
+                                           <button type="button"  class ="btn btn-success  btn-size">                                            
+                                              This machine is working. No Action is needed.                                            
+                                           </button>  
+                                        </span>                                                 
+                                    </td>                              
+                              </tr>                      
+                      </tbody>                 
+                 </table>      
+            </div>
+     </div>
+   </div>
+   <div  th:replace="/fragments/CommonFragment::footer"></div>          
+ </body>
+</html>

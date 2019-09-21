@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head  th:replace="/fragments/CommonFragment::HeadDefinitions">
+</head>
+
+<body>
+     <div class="jumbotron text-size">
+      <h1>All worker list</h1> 
+      
+      <br>
+      <p>This page shows all workers from database   </p>     
+      <p>User can modify or remove worker data by clicking <span  class="link-color">  modify </span> or <span  class="link-color"> remove </span> text link </p>
+      <p>User can add new worker into database by clicking <span  class="button-color"> add new worker </span>  button   </p>
+      </div>       
+           
+     <div class="container-fluid">
+      <div class="row">
+           <div class="col-sm-12">
+                 <table class="table table-sm table-striped">
+                       <thead class="table-header">
+                             <tr class="row">
+                                   <th class="col-sm-3"> name    </th>
+                                   <th class="col-sm-3"> title   </th>
+                                   <th class="col-sm-1"> remove  </th>
+                                   <th class="col-sm-5">  modify </th>                             
+                              <tr  >                       
+                       </thead>                 
+                       <tbody>
+                              <tr  class="row " data-th-each="worker:${workerRepository} " >                              
+                                    <td class="col-sm-3" data-th-text="${worker.name}  "   >   </td>
+                                    <td class="col-sm-3" data-th-text="${worker.title}  "  >   </td>                           
+                              
+                                     <td   class="col-sm-1  link-color"  > 
+                                        <a  th:href="@{'/management/{id}/modify' ( id=${worker.id} )    }"  >modify </a> 
+                                     </td>                          
+                                     <td   class="col-sm-1  link-color"  >
+                                        <a  th:href="@{'/management/{id}/remove' ( id=${worker.id} )    }"  >remove </a> 
+                                    </td> 
+                              </tr> 
+                      </tbody>                 
+                 </table>      
+           </div>
+       </div>
+      <a class="btn btn-primary button-color"  href="/management/addNewWorker">add new worker</a>     
+     </div>       
+     <div  th:replace="/fragments/CommonFragment::footer"></div>
+  </body>
+</html>

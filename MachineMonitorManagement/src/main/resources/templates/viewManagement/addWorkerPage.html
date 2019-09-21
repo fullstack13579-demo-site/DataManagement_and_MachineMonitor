@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head  th:replace="/fragments/CommonFragment::HeadDefinitions">
+</head>
+
+<body>
+     <div class="jumbotron text-size">
+      <h1>Add Worker Page</h1>     
+             
+      <br> 
+      <p>User can add new worker into database by clicking <span  class="button-color"> add worker into database</span> button </p>
+      </div>       
+      
+      <div class="container-fluid">           
+          <form action="/management/addIntoDatabase" method="post">
+        
+                give name : <input type ="text" name="workerName">
+                give title: <input type ="text" name="workerTitle">
+              
+               <br> <br>              
+               <button type="submit" class="btn btn-primary button-color"  > add worker into database</button>
+          </form>
+       </div>
+    <div  th:replace="/fragments/CommonFragment::footer"></div>      
+  </body>
+</html>

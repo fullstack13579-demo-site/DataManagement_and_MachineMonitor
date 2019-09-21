@@ -1,0 +1,46 @@
+body{
+	background-color:lightyellow;
+	font-family:Times;
+}
+
+p{
+     margin: 5px 0px 5px 0px;
+     font-size:22px;
+}
+
+hr.line{
+	border:1px solid blue;
+}
+
+.button-color{
+	background-color:gold;
+	color:blue;
+}
+
+.text-size{
+	font-size:18px;
+	background-color:#a7afd5;
+}
+
+
+.link-color{
+	color:blue;
+	font-weight:999;
+}
+
+.table-header{
+	color:#4B0082;
+	font-size:21px;
+	font-weight:999;
+}
+
+.btn-size{
+	width:410px !important;
+}
+
+.dropDownBoxPosition{
+     margin: 11px 15px 0 233px;
+     font-size:22px;     
+}
+
+

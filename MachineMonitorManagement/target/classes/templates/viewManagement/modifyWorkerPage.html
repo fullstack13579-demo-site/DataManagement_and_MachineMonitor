@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head  th:replace="/fragments/CommonFragment::HeadDefinitions">
+</head>
+
+<body>
+     <div class="jumbotron text-size">
+      <h1>Modify Worker Page</h1> 
+      
+       <br> 
+       <p>User can modify worker data by clicking <span  class="button-color"> modify name /title</span>  button   </p>
+       </div>     
+      
+       <div class="container-fluid">             
+          <form action="/management/updateWorkerData" method="post">
+        
+               modify name : <input type ="text" name="singleWorkerName" th:placeholder="${singleWorker.name}">
+               modify title    : <input type ="text" name="singleWorkerTitle" th:placeholder="${singleWorker.title}">
+               
+               <input type ="hidden" id="singleWorkerId"  name="singleWorkerId" th:value="${singleWorker.id}"/>
+              
+               <br> <br>              
+               <button type="submit" class="btn btn-primary button-color" > modify name /title</button>
+          </form> 
+       </div>
+    <div  th:replace="/fragments/CommonFragment::footer"></div>      
+  </body>
+</html>
